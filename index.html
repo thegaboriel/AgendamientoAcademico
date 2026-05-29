@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Eventos Académicos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Gestión de Eventos Académicos</h1>
+  </header>
+
+  <main class="dashboard-container">
+    <section class="form-section">
+      <h2>Registrar Nuevo Evento</h2>
+      <form id="form-evento" novalidate>
+        <div class="form-group">
+          <label for="nombre">Nombre del Evento:</label>
+          <input type="text" id="nombre" required minlength="5">
+          <span class="error-msg" id="err-nombre"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="tipo">Tipo de Evento:</label>
+          <select id="tipo" required>
+            <option value="">Seleccione...</option>
+            <option value="Festividad">Festividad</option>
+            <option value="Conferencia">Conferencia</option>
+            <option value="Taller">Taller</option>
+            <option value="Congreso">Congreso</option>
+            <option value="Seminario">Seminario</option>
+          </select>
+          <span class="error-msg" id="err-tipo"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha" required>
+          <span class="error-msg" id="err-fecha"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="lugar">Lugar / Ubicación:</label>
+          <input type="text" id="lugar" required>
+          <span class="error-msg" id="err-lugar"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="cupos">Capacidad (Asistentes):</label>
+          <input type="number" id="cupos" min="10" required>
+          <span class="error-msg" id="err-cupos"></span>
+        </div>
+
+        <button type="submit" class="btn-submit">Guardar Evento</button>
+      </form>
+    </section>
+
+    <section class="list-section"><p id="contador">Total de eventos: 0</p>
+      <h2>Listado de Eventos</h2>
+      
+      <div class="filter-bar">
+        <input type="text" id="search-input" placeholder="Buscar por nombre o lugar...">
+        
+        <select id="filter-tipo">
+          <option value="Todos">Todos los tipos</option>
+          <option value="Festividad">Festividad</option>
+          <option value="Conferencia">Conferencia</option>
+          <option value="Taller">Taller</option>
+          <option value="Congreso">Congreso</option>
+          <option value="Seminario">Seminario</option>
+        </select>
+
+        <select id="sort-fecha">
+          <option value="asc">Fecha: Próximos primero</option>
+          <option value="desc">Fecha: Más lejanos primero</option>
+        </select>
+      </div>
+
+      <div id="eventos-container" class="cards-grid"></div>
+    </section>
+  </main>
+
+  <div id="modal-detalle" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3 id="modal-titulo">Detalle del Evento</h3>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
