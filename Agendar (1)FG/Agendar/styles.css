@@ -1,0 +1,149 @@
+:root {
+  --primary-color: #1e3a8a;
+  --secondary-color: #3b82f6;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-color: #1e293b;
+  --error-color: #ef4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+body { background-color: var(--bg-color); color: var(--text-color); padding: 20px; }
+
+header { text-align: center; margin-bottom: 30px; color: var(--primary-color); }
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container { grid-template-columns: 350px 1fr; }
+}
+
+.form-section, .list-section {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+h2 { margin-bottom: 20px; font-size: 1.4rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
+
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+.form-group input, .form-group select {
+  width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.95rem;
+}
+.error-msg { color: var(--error-color); font-size: 0.8rem; display: none; margin-top: 4px; }
+
+.btn-submit {
+  width: 100%; background: var(--primary-color); color: white; border: none;
+  padding: 10px; border-radius: 4px; font-weight: bold; cursor: pointer; transition: background 0.2s;
+}
+.btn-submit:hover { background: var(--secondary-color); }
+
+.filter-bar {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.filter-bar input { flex: 1; min-width: 200px; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; }
+.filter-bar select { padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; }
+
+.cards-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px;
+}
+
+.evento-card {
+  background: #f1f5f9; padding: 15px; border-radius: 6px; border-left: 4px solid var(--primary-color);
+}
+.evento-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary-color); }
+.evento-card p { font-size: 0.9rem; margin-bottom: 6px; }
+.badge { background: #dbeafe; color: var(--primary-color); padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+
+.btn-detalle {
+  background: transparent; border: 1px solid var(--secondary-color); color: var(--secondary-color);
+  padding: 4px 8px; border-radius: 4px; cursor: pointer; margin-top: 8px; font-weight: 600;
+}
+.btn-detalle:hover { background: var(--secondary-color); color: white; }
+
+.modal {
+  position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+.modal.oculto {
+  display: none;
+}
+.modal-content {
+  background: white; padding: 25px; border-radius: 8px; max-width: 500px; width: 90%; position: relative;
+}
+.close-modal { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; cursor: pointer; }
+/* ── Estilos adicionales para la versión refactorizada ── */
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.contador-badge {
+  background-color: #1a3c5e;
+  color: white;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+}
+
+.msg-exito {
+  margin-top: 0.6rem;
+  color: #27ae60;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.oculto {
+  display: none;
+}
+
+.estado-vacio {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2.5rem;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.estado-vacio span {
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-estado {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 12px;
+  margin-top: 0.3rem;
+}
+
+.badge-estado.pendiente {
+  background-color: #fef9e7;
+  color: #d68910;
+}
+
+.disponibilidad-info {
+  margin-top: 1rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #eafaf1;
+  border-radius: 6px;
+  color: #1e8449;
+  font-size: 0.8rem;
+}

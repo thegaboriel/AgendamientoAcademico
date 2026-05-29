@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Eventos Académicos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Gestión de Eventos Académicos</h1>
+  </header>
+
+  <main class="dashboard-container">
+
+    <!-- Formulario de registro -->
+    <section class="form-section">
+      <h2>Registrar Nuevo Evento</h2>
+      <form id="form-evento" novalidate>
+
+        <div class="form-group">
+          <label for="nombre">Nombre del Evento:</label>
+          <input type="text" id="nombre" placeholder="Ej: Congreso de Ingeniería 2025" required>
+          <span class="error-msg" id="err-nombre"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="categoria">Categoría:</label>
+          <select id="categoria" required>
+            <option value="">Seleccione...</option>
+            <option value="Conferencia">Conferencia</option>
+            <option value="Taller">Taller</option>
+            <option value="Congreso">Congreso</option>
+            <option value="Seminario">Seminario</option>
+            <option value="Festividad">Festividad</option>
+          </select>
+          <span class="error-msg" id="err-categoria"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha" required>
+          <span class="error-msg" id="err-fecha"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="hora">Hora:</label>
+          <input type="time" id="hora" required>
+          <span class="error-msg" id="err-hora"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="modalidad">Modalidad:</label>
+          <select id="modalidad" required>
+            <option value="">Seleccione...</option>
+            <option value="Presencial">Presencial</option>
+            <option value="Virtual">Virtual</option>
+            <option value="Híbrido">Híbrido</option>
+          </select>
+          <span class="error-msg" id="err-modalidad"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="ubicacion">Lugar / Ubicación:</label>
+          <input type="text" id="ubicacion" placeholder="Ej: Auditorio Central, Bloque A" required>
+          <span class="error-msg" id="err-ubicacion"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="cupos">Capacidad (mín. 10 asistentes):</label>
+          <input type="number" id="cupos" min="10" placeholder="Ej: 50" required>
+          <span class="error-msg" id="err-cupos"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="descripcion">Descripción:</label>
+          <textarea id="descripcion" rows="3" placeholder="Breve descripción del evento..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Guardar Evento</button>
+        <p id="msg-exito" class="msg-exito oculto">✔ Evento guardado correctamente.</p>
+      </form>
+    </section>
+
+    <!-- Listado de eventos -->
+    <section class="list-section">
+      <div class="list-header">
+        <h2>Listado de Eventos</h2>
+        <span id="contador" class="contador-badge">Total: 0</span>
+      </div>
+
+      <div class="filter-bar">
+        <input type="text" id="search-input" placeholder="Buscar por nombre o ubicación...">
+
+        <select id="filter-categoria">
+          <option value="Todos">Todas las categorías</option>
+          <option value="Conferencia">Conferencia</option>
+          <option value="Taller">Taller</option>
+          <option value="Congreso">Congreso</option>
+          <option value="Seminario">Seminario</option>
+          <option value="Festividad">Festividad</option>
+        </select>
+
+        <select id="sort-fecha">
+          <option value="asc">Fecha: Próximos primero</option>
+          <option value="desc">Fecha: Más lejanos primero</option>
+        </select>
+      </div>
+
+      <div id="eventos-container" class="cards-grid"></div>
+    </section>
+  </main>
+
+  <!-- Modal detalle -->
+  <div id="modal-detalle" class="modal oculto">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3 id="modal-titulo">Detalle del Evento</h3>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
