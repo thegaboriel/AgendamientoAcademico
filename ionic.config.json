@@ -1,0 +1,7 @@
+{
+  "name": "agendamiento-academico",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
